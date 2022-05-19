@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export default class Botao extends Component {
+class Botao extends React.Component {
   render() {
     return (
       <button>
@@ -9,3 +9,5 @@ export default class Botao extends Component {
     )
   }
 }
+
+export default Botao;
