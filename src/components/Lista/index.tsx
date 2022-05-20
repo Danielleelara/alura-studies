@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import './styles.scss';
+import "./../assets/img/check-mark.svg"
 
 export default function index() {
   const tarefas = [
@@ -16,13 +18,13 @@ export default function index() {
     },
   ]
   return (
-    <aside>
+    <aside className='listaTarefas'>
       <h2>Estudos do dia</h2>
       <ul>
         {
           tarefas.map((item) => {
             return (
-              <li>
+              <li className='item'>
                 <h3>{item.tarefa}</h3>
                 <span>{item.tempo}</span>
               </li>
