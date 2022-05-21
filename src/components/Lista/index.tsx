@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Lista.module.scss';
 import "./../assets/img/check-mark.svg"
+import Item from './Item/Item';
 
 export default function index() {
   const tarefas = [
@@ -22,12 +23,12 @@ export default function index() {
       <h2>Estudos do dia</h2>
       <ul>
         {
-          tarefas.map((item) => {
+          tarefas.map((item, index) => {
             return (
-              <li className={styles.item}>
-                <h3>{item.tarefa}</h3>
-                <span>{item.tempo}</span>
-              </li>
+              <Item
+                key={index}
+                {...item}
+              />
             )
             })
         }
