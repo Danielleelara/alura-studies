@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.scss';
+import styles from './Lista.module.scss';
 import "./../assets/img/check-mark.svg"
 
 export default function index() {
@@ -18,13 +18,13 @@ export default function index() {
     },
   ]
   return (
-    <aside className='listaTarefas'>
+    <aside className={styles.listaTarefas}>
       <h2>Estudos do dia</h2>
       <ul>
         {
           tarefas.map((item) => {
             return (
-              <li className='item'>
+              <li className={styles.item}>
                 <h3>{item.tarefa}</h3>
                 <span>{item.tempo}</span>
               </li>
