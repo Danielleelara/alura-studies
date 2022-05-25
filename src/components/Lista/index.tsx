@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Lista.module.scss';
 import "./../assets/img/check-mark.svg"
 import Item from './Item/Item';
 
-export default function index() {
-  const tarefas = [
+export default function Lista() {
+  const [tarefas, setTarefas] = useState([
     {
       tarefa: "React",
       tempo: '02:00:00'
@@ -17,10 +17,19 @@ export default function index() {
       tarefa: "Typescript",
       tempo: '03:00:00'
     },
-  ]
+  ]);
+
+  useEffect(()=> {
+    setTarefas(tarefas);
+  },[]);
+ 
   return (
     <aside className={styles.listaTarefas}>
-      <h2>Estudos do dia</h2>
+      <h2 onClick={()=>{
+        setTarefas([...tarefas, {tarefa: "Estudar estado", tempo: "05:00:00"}])
+        console.log('h2 clicado: ',tarefas)
+      }}>Estudos do dia</h2>
+        
       <ul>
         {
           tarefas.map((item, index) => {
