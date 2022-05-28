@@ -3,7 +3,12 @@ import "./../assets/img/check-mark.svg"
 import Item from './Item/Item';
 import { ITarefas } from '../../types/tarefas';
 
-export default function Lista({tarefas}:{tarefas:ITarefas[]} ) {
+interface Props{
+  tarefas: ITarefas[],
+  selecionaTarefas: (tarefaSelecionada: ITarefas)=>void
+}
+
+export default function Lista ({tarefas, selecionaTarefas}:Props ) {
 
   return (
     <aside className={styles.listaTarefas}>
@@ -11,10 +16,11 @@ export default function Lista({tarefas}:{tarefas:ITarefas[]} ) {
         
       <ul>
         {
-          tarefas.map((item, index) => {
+          tarefas.map((item) => {
             return (
               <Item
-                key={index}
+                selecionaTarefas={selecionaTarefas}
+                key={item.id}
                 {...item}
               />
             )
