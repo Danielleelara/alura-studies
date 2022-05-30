@@ -8,8 +8,8 @@ export default function Item({
   tarefa, tempo, selecionado, completado, id, selecionaTarefas }: Props) {
   return (
     <li 
-      className={`${styles.item} ${selecionado? styles.itemSelecionado: ''}`} 
-      onClick={()=> selecionaTarefas(
+      className={`${styles.item} ${selecionado? styles.itemSelecionado: ''} ${completado? styles.itemCompletado:  ''}`}
+      onClick={()=> !completado && selecionaTarefas(
         {
           tarefa, 
           tempo,
@@ -21,6 +21,7 @@ export default function Item({
     }>
       <h3>{tarefa}</h3>
       <span>{tempo}</span>
+      {completado && <span className={styles.concluido} aria-label="tarefa completada"></span>}
     </li>
   )
 }
